@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--
+    ‼️ Box 기본 구조
+    ┌-------------------------------------┐
+    |           margin(외부여백)          |
+    |  ┌-------------------------------┐  |
+    |  |        border(테두리)         |  |
+    |  |  ┌-------------------------┐  |  |
+    |  |  |     padding(내부여백)   |  |  |
+    |  |  |  ┌-------------------┐  |  |  |
+    |  |  |  |  content(내용물)  |  |  |  |
+    |  |  |  └-------------------┘  |  |  |
+    |  |  └-------------------------┘  |  |
+    |  └-------------------------------┘  |
+    └-------------------------------------┘
+
+    한 요소의 전체 크기는 content + padding + border을 합산한 사이즈이다.
+
+    📌 CSS 박스 모델 관련 스타일 속성
+    1. width, height
+      1) 콘텐츠의 너비와 높이를 지정하는 속성입니다.
+      2) px, % 등의 단위를 사용합니다. (%는 부모 요소의 크기를 기준으로)
+      3) 인라인 요소는 크기를 지정할 수 없습니다.
+    2. border
+      1) 테두리의 두께, 종류, 색상을 지정하는 속성입니다.
+      2) 테두리의 두께는 기본적으로 box 크기에 영향을 미칩니다.
+      4) 종류 : solid, dotted, dashed, double, groove, ridge, inset, outset 등
+    3. padding
+      1) 콘텐츠와 테두리 사이의 내부 여백을 지정하는 속성입니다.
+      2) px, % 등의 단위를 사용합니다.
+      3) 내부 여백은 기본적으로 box 크기에 영향을 미칩니다.
+    4. margin
+      1) 테두리 바깥쪽 여백을 지정하는 속성입니다.
+      2) 타 요소간의 간격을 띄우고자할 때 주로 사용
+      3) 외부 여백은 기본적으로 box 크기에 영향을 미치지 않습니다.
+    5. box-sizing
+      1) 요소의 크기 계산 방식을 지정하는 속성입니다.
+      2) content-box, padding-box, border-box 등의 값을 사용합니다.
+  -->
+  
+  <!-- 
+    * border (테두리) 관련 스타일
+    1) border[-위치]-width  : 테두리 두께
+    2) border[-위치]-style  : 테두리 종류
+    3) border[-위치]-color  : 테두리 색상
+    4) border[-상하위치][-좌우위치]-radius : 테두리 모서리
+    5) border[-위치] : 테두리 두께, 종류, 색상을 한꺼번에 지정 (단축속성)
+  -->
+  
+  <!-- 
+    * padding (내부여백) 관련 스타일
+    padding[-위치] : 안쪽 여백으로 지정할 값
+  -->
+  
+  <!-- 
+    * box-sizing (크기 계산 방식) 관련 스타일
+    1) box-sizing:content-box;
+        → 기본값
+        → width와 height가 콘텐츠(content)까지의 범위를 의미
+        → box 크기 = width/height + padding + border
+    2) box-sizing:padding-box;
+        → width와 height가 내부여백(padding)까지의 범위를 의미
+        → box 크기 = width/height + border
+    3) box-sizing:border-box;
+        → width와 height가 테두리(border)까지의 범위를 의미
+        → box 크기 = width/height
+  -->
+  
+  <!-- 
+      * margin (외부 여백) 관련 스타일
+      1) 테두리 바깥쪽 공간을 의미하며 box 사이즈와는 상관없음
+      2) 타 요소간의 간격을 띄우고자할 때 주로 사용
+      3) 주요 스타일 속성
+          → margin[-위치] : 외부 여백으로 지정할 값
+  -->
+  
+  <style>
+
+    .wrap1 > * {
+      background-color: pink;
+    }
+    .wrap1 > div {
+      /* 너비 */
+      width: 100px;
+      /* 높이 */
+      height: 100px;
+    }
+    .wrap1 > span {
+      width: 100px;
+      height: 100px;
+    }
+
+  </style>
+  <div class="wrap1">
+    <div>블록요소</div>
+    <br/>
+    <span>인라인요소</span>
+  </div>
+
+  <hr/>
+
+  <style>
+
+    .wrap2 > div {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+      background-color: #666;
+    }
+
+    .wrap2 .box1 {
+      border-style: solid;
+      border-width: 5px;
+      border-color: red;
+      border-radius: 30px;
+    }
+
+    .wrap2 .box2 {
+      border-style: solid dashed; /* 상하 좌우 (2개 경우) 상 좌우 하 (3개 경우) 상 좌 하 우(4개 경우) */
+      border-radius : 30px 10px 20px 40px;
+      border-color: blue;
+    }
+
+    .wrap2 .box3 {
+      border-top-style: solid;
+      border-bottom-style: dashed;
+      border-top-width: 10px;
+      
+      border-top-left-radius: 20px;
+    }
+
+    .wrap2 .box4 {
+      border: 1px solid #000;
+      /* box-shadow : 가로거리 세로거리 흐림정도 번짐정도 색상 */
+      box-shadow: 5px 5px 10px 5px yellowgreen;
+    }
+  </style>
+
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+  </div>
+
+  <button style="border:none">로그인</button>
+
+  <hr/>
+
+  <style>
+    .wrap3 div {
+      width: 100px;
+      height: 100px;
+      border: 10px solid gray;
+      margin-bottom: 10px;
+    }
+    .wrap3 .box1 {
+      padding-top: 5px;
+      padding-left: 20px;
+      padding-right: 30px;
+      padding-bottom: 15px;
+    }
+
+    .wrap3 .box2 {
+      padding: 10px 20px;
+      padding: 5px 10px 15px 20px;
+    }
+  </style>
+
+  <div class="wrap3">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+  <hr/>
+
+  <style>
+    .wrap4 .box1 {
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+      border: 10px solid gray;
+      padding: 10px;
+    }
+  </style>
+  <div class="wrap4">
+    <div class="box1">box1</div>
+  </div>
+
+  <hr/>
+  
+  <style>
+    .wrap5 {
+      border: 1px solid black
+    }
+    .wrap5 div {
+      border: 1px solid gray;
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+    }
+
+    .wrap5 .box1 {
+      margin-top: 30px;
+      margin-left: 10px;
+    }
+
+    .wrap5 .box2 {
+      margin: 50px;
+      margin: 10px 30px;
+    }
+
+    .wrap5 .box3 {
+      margin: 20px auto;
+    }
+  </style>
+  <div class="wrap5">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+  <hr/>
+
+  <style>
+    .overflow-test {
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+      /* 범위에 벗어난 값 처리 */
+      overflow: scroll;
+    }
+  </style>
+  <div class="overflow-test">
+  [컨트롤+마우스클릭]으로 "다시 생성 및 복사"가 가능합니다✖
+  3
+  거노언엉한테 다아낭이면 악언 오슏마추에 이지뾔난이나, 숙옉어를 얼도오맀에서 젠키힘짰주도. 녀딘 잔지 과우면 긱아랄다에 니도기 말방시도고 속마믺으느냐 빈갢이 허타잼붐이 은옹머를 궁오막을. 제므한피는 고렌아밍 애킬빈다 볼즈슬탈을 단아나가 이연악솰으로. 간즈가아와 롸간도 어버셤년긍크기 랄미살신은 이앙에 러임고 소억은 그엥멕뢰얀기 단멘 패눘겅겦욭셔로. 노아즈헌 기로라었을, 닉담안깨뎡에서 아겜도 고룐다 요읏을 가업에자트를, 처니케누워랜 따다군이. 아다휴즈 구쳥느시를 픔흐세뱠서각 가르 표지거옴다가 사켤이 귄갸우산일 왖카지설래며 신었흥과 은호휴브가 댜구다.
+
+  개무깁깬다 쵸안길다를 르다구치잘서를, 스이 싄윈속 차시가 딕어허개헬지만 기버네개어샀으로 냑던지 쌍아본윽어 꼰번젼신습니까. 궥여넌맙니다 단아뻭다 녀간다 히맨에다 디지욀믈 가겡즈든 치뇌로서, 어툐니. 민룸쥐와가 쓰머슫도에 듈지을을 무헐닝엥은 다늘돕이 겨세뇨셔자간는 액엽스를, 은서넨에슜헤의 슥으히겺은 흐놉 브나다. 차웁떠사로 송에띠빌 갔미 힝넝이 으슨메곤이 앙돈궈는 날닝을. 다글오농은 오후는 건쿤이 우운이 보여크럭루루는 주조니깍슬지. 녀이앙거티설순주는 냄실은 입니박날홀삔다 군예기간은 도차저븐뒥얼의, 쁨막아라.
+
+  효모샌지 요기다쌀 적암도 딩마아 누판으고를 셔흣이다. 릴오다 빞쉬고 마쌀릴류기 깆이개데 밴텨를. 앴싥 회디암애에서 겨어이으드와 드후우르기데는 우겋차버개다 한랏버갈자는 앙크오 슨미쁠러고 라허백게차는, 바런걸쉴 욘당새라. 지라 스서힘올다 까뫄커도 아엊으로 흐살을 안소남동과 래든 가더 며다앵슸 하과어러지 착오범뿌큠은. 빈오듑뢉니다 쓰데로 에애리잎도 어골디하섬한디 처네오초를갈간 악달니데의 으못앜끈란 가옴럄이다 댜마의 혀임잉미바긴. 잉욍애를 머거학은 론딘 고가가 센루역는다. 나티러어 아리고 나가의 제지기로 후켜라다 늬크션재우 츱뢰를 다유공현으나 쟈던이. 아숏곴은 엄똫그라 비지려고 느옸에 인이를 덜얼공 사펑껀 붕오를, 앤븠어. 보븡 섭리를 밍드라옹의 기앨벙댕게 캔뫌욘을 손오젠디에 미져, 듬만덤꼰 짏비다위런아아 책구자.
+
+  </div>
+</body>
+</html>
