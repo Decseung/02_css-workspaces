@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      color: #fff;
+    }
+
+    main {
+      display: flex;
+      margin: 10px 5px;
+      flex-grow: 1;
+    }
+
+    main div {
+      margin-right: 5px;
+    }
+
+    .nav {
+      background-color: #ccc;
+      width: 200px;
+      border: 1px solid #999;
+      padding: 10px;
+    }
+
+    .nav h4 {
+      margin-bottom: 5px;
+    }
+
+    .nav ul {
+      margin-left: 20px;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      border: 1px solid #999;
+      padding: 10px
+    }
+
+    .block {
+      background-color: rgba(133, 186, 247, 0.361) ;
+      padding: 8px;
+      border: 1px dashed rgba(152, 185, 222, 0.511);
+      margin: 10px 0;
+    }
+
+    aside {
+      background-color:rgba(181, 208, 239, 0.511);
+      padding: 5px;
+      width: 200px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 
+    📌 Semantic 태그란?
+    1) 의미(의도, 역할)를 명확하게 전달하는 HTML 태그입니다.
+    2) 예시: <header>, <nav>, <main>, <aside>, <footer>, <section>, <article> 등
+    3) 목적
+        → 웹 접근성 향상 (스크린리더 등 보조기기에서 구조를 이해하기 쉬움)
+        → 코드의 가독성 및 유지보수성 향상
+        → 검색 엔진 최적화(SEO)에 도움
+        → 웹 표준 준수
+    4) 주요 종류
+        → <header>   : 문서/섹션의 머리말(로고, 내비게이션 등)
+        → <nav>      : 주요 내비게이션 링크 영역
+        → <main>     : 문서의 주요 콘텐츠(핵심 내용)
+        → <aside>    : 부가 정보(광고, 프로필, 관련 링크 등)
+        → <footer>   : 문서/섹션의 바닥글(저작권, 연락처 등)
+        → <section>  : 주제별 구분 영역
+        → <article>  : 독립적인 콘텐츠(게시글, 뉴스 등)
+    5) 시맨틱 태그를 사용하면 div, span 등 비의미적 태그보다 구조와 의미가 명확해집니다.
+  -->
+  <div class="container">
+    <header>
+        <p>머리부(Header)</p>
+    </header>
+    <main>
+      <div class="nav">
+
+        <h4>네비게이션(Nav)</h4>
+        <ul>
+          <li>HOME</li>
+          <li>ABOUT</li>
+          <li>Contant</li>
+        </ul>
+      </div>
+      
+      <div class="main-content">
+        <h2>메인 콘텐츠(Main)</h2>
+        <p class="block">양옆은 고정폭, 가운데는 가변폭!</p>
+        <p>Hint. 가운에 영역은 <code>flex: 1</code>로 남는 공간 차지합니다.</p>
+      </div>
+      <aside>
+        <h4>사이드바(Aside)</h4>
+        <p>공지/광고/프로필 등</p>
+      </aside>
+    </main>
+    <footer>
+      <p>바닥부(Footer)</p>
+    </footer>
+  </div>
+</body>
+</html>

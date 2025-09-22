@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: grid;
+      grid-template-rows: 1fr 20fr 1fr;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      color: #fff;
+    }
+
+    main {
+      display: grid;
+      margin: 10px 5px;
+      grid-template-columns: 200px 1fr 200px;
+    }
+
+    main div {
+      margin-right: 5px;
+    }
+
+    .nav {
+      background-color: #ccc;
+      width: 200px;
+      border: 1px solid #999;
+      padding: 10px;
+    }
+
+    .nav h4 {
+      margin-bottom: 5px;
+    }
+
+    .nav ul {
+      margin-left: 20px;
+    }
+
+    .main-content {
+      border: 1px solid #999;
+      padding: 10px
+    }
+
+    .block {
+      background-color: rgba(133, 186, 247, 0.361) ;
+      padding: 8px;
+      border: 1px dashed rgba(152, 185, 222, 0.511);
+      margin: 10px 0;
+    }
+
+    aside {
+      background-color:rgba(181, 208, 239, 0.511);
+      padding: 5px;
+      width: 200px;
+      border: 1px solid #ccc
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: auto;
+        grid-template-rows: 1fr 3fr 1fr;
+        align-items: center;
+      }
+      .nav, .main-content, aside {
+       height: calc(100% - 10px);
+       width: calc(100% - 10px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+        <p>머리부(Header)</p>
+    </header>
+    <main>
+      <div class="nav">
+
+        <h4>네비게이션(Nav)</h4>
+        <ul>
+          <li>HOME</li>
+          <li>ABOUT</li>
+          <li>Contant</li>
+        </ul>
+      </div>
+      
+      <div class="main-content">
+        <h2>메인 콘텐츠(Main)</h2>
+        <p class="block">양옆은 고정폭, 가운데는 가변폭!</p>
+        <p>Hint. 가운에 영역은 <code>flex: 1</code>로 남는 공간 차지합니다.</p>
+      </div>
+      <aside>
+        <h4>사이드바(Aside)</h4>
+        <p>공지/광고/프로필 등</p>
+      </aside>
+    </main>
+    <footer>
+      <p>바닥부(Footer)</p>
+    </footer>
+  </div>
+</body>
+</html>
