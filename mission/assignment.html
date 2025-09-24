@@ -78,6 +78,7 @@
         /* 추기한 부분 */
         display: flex;
         flex-direction: row;
+        padding-top: 40px;
       }
 
       /* ===== 사이드바 ===== */
@@ -278,10 +279,6 @@
       }
 
       @media (max-width: 480px) {
-        .header {
-          padding: 0.2rem 2rem;
-        }
-
         
         .header-content {
           /* TODO: 매우 작은 화면에서 세로 배치로 변경하세요 */
@@ -289,21 +286,6 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-        }
-
-        .header-content label {
-          font-size: 1.5rem;
-          font-weight: bold;
-        }
-
-        .header-content input[type="checkbox"] {
-          display: none;
-        }
-        
-        nav {
-          height: 0px;
-          overflow: hidden;
-          transition: height .3s ease;
         }
 
         .nav-menu {
@@ -323,10 +305,6 @@
           padding: 1rem;
           /* 추가한 부분 */
         }
-
-        .header-content input[type="checkbox"]:checked + nav {
-          height: 236px;
-        }
       }
     </style>
   </head>
@@ -334,10 +312,9 @@
     <!-- 헤더 영역 -->
     <header class="header">
       <div class="header-content">
-        <!-- <div class="logo"> -->
-          <label for="menu">Dashboard</label>
-          <input type="checkbox" id="menu"/>
-        <!-- </div> -->
+        <div class="logo">
+          Dashboard
+        </div>
         <nav>
           <ul class="nav-menu">
             <li><a href="#home">홈</a></li>
